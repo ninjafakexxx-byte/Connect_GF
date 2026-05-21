@@ -32,14 +32,7 @@ export function OnlinePresence() {
       onConflict: 'user_id',
     }
   );
-          user_id: user.id,
-          name:
-            profile?.nome ||
-            user.user_metadata?.name ||
-            user.email ||
-            'Usuário',
-          last_seen: new Date().toISOString(),
-        });
+          
       } catch (error) {
         console.warn('[online-presence]', error);
       }
