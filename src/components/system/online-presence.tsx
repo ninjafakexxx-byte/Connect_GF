@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { supabase } from '@/integrations/supabase/client';
+import { externalSupabase as supabase } from '@/integrations/external-supabase/client';
 import { useAuth } from '@/hooks/use-auth';
 
 const HEARTBEAT_INTERVAL = 30000;
