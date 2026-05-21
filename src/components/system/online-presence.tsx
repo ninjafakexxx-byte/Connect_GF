@@ -44,6 +44,7 @@ export function OnlinePresence() {
         console.warn('[online-presence]', error);
       }
     };
+    
 
     sendHeartbeat();
 
