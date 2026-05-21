@@ -47,10 +47,10 @@ export default defineConfig({
           navigateFallback: null,
 
           navigateFallbackDenylist: [
-            /^\\/api\\//,
-            /^\\/~//,
-            /^\\/auth\\//,
-          ],
+  /^\/api\//,
+  /^\/~/,
+  /^\/auth\//,
+],
 
           runtimeCaching: [
             {
