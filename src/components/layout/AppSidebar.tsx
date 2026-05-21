@@ -111,7 +111,7 @@ export function AppSidebar() {
           <SidebarMenuButton asChild isActive={active} tooltip={item.title}>
             <Link
               {...(linkProps as any)}
-              className={`group relative flex items-center gap-3 rounded-2xl transition-all duration-300 ${
+              className={`group relative flex items-center gap-3 rounded-2xl transition-transform duration-150 ease-out will-change-transform ${
                 active
                   ? isBlackTheme
                     ? "border border-[rgba(214,168,95,0.22)] bg-[rgba(214,168,95,0.10)] text-foreground shadow-[0_0_20px_rgba(214,168,95,0.08)]"
@@ -138,7 +138,7 @@ export function AppSidebar() {
   return (
     <Sidebar
       collapsible="icon"
-      className="border-r border-white/5 bg-[#060816]/95 backdrop-blur-sm"
+      className="border-r border-white/5 bg-[#060816] -sm"
     >
       <SidebarHeader className="border-b border-sidebar-border">
         <div className="flex items-center gap-3 px-2 py-3">
