@@ -2,6 +2,7 @@ import { QueryClient } from '@tanstack/react-query';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { AuthProvider } from '@/hooks/use-auth';
 import { Toaster } from '@/components/ui/sonner';
+import { OnlinePresence } from '@/components/system/online-presence';
 
 interface AppProvidersProps {
   children: React.ReactNode;
@@ -12,6 +13,8 @@ export function AppProviders({ children, queryClient }: AppProvidersProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
+        <OnlinePresence />
+
         <Toaster
           richColors
           position="top-right"
