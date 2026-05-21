@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { externalSupabase as supabase } from '@/integrations/external-supabase/client';
 import { useAuth } from '@/hooks/use-auth';
 
-const HEARTBEAT_INTERVAL = 30000;
+const HEARTBEAT_INTERVAL = 10000;
 
 export function OnlinePresence() {
   const { user, profile } = useAuth();
