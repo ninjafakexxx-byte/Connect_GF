@@ -4,6 +4,7 @@ import { useRouterState, Link, useNavigate } from "@tanstack/react-router";
 import { useAuth } from "@/hooks/use-auth";
 import { useTheme } from "@/hooks/use-theme";
 import { NotificationsBell } from "@/components/layout/NotificationsBell";
+import { OnlineUsersIndicator } from "@/components/layout/OnlineUsersIndicator";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -78,6 +79,8 @@ export function Header() {
         {theme === "dark" && <Sun className="h-4 w-4" />}
         {theme === "black" && <Moon className="h-4 w-4" />}
       </button>
+
+      <OnlineUsersIndicator />
 
       <NotificationsBell />
 
