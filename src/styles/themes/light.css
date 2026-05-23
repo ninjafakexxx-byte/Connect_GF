@@ -1,74 +1,403 @@
+/* ============================================================
+   ADNA · LIGHT ENTERPRISE THEME
+   Sibling of premium-dark · clean · corporate · sophisticated
+   Only [data-theme="light"] is touched here.
+   ============================================================ */
+
 [data-theme="light"] {
-  --surface-base: #f8fafc;
-  --surface-card: #ffffff;
-  --surface-sidebar: #eef2ff;
-  --text-primary: #0f172a;
-  --text-muted: #475569;
-  --border-soft: rgba(15,23,42,0.08);
-  --accent-primary: #2563eb;
+  /* Surfaces */
+  --surface-0: #f8fafc;
+  --surface-1: #ffffff;
+  --surface-2: #f1f5f9;
+
+  --surface-base:     var(--surface-0);
+  --surface-subtle:   #f5f7fa;
+  --surface-card:     #ffffff;
+  --surface-elevated: #ffffff;
+  --surface-sidebar:  #ffffff;
+  --surface-header:   rgba(255,255,255,0.85);
+  --surface-overlay:  rgba(248,250,252,0.85);
+
+  /* Text */
+  --text-primary:   #0f172a;
+  --text-secondary: #334155;
+  --text-muted:     #64748b;
+  --text-subtle:    #94a3b8;
+
+  /* Borders */
+  --border-soft:    rgba(15,23,42,0.05);
+  --border-subtle:  rgba(15,23,42,0.07);
+  --border-default: rgba(15,23,42,0.10);
+  --border-strong:  rgba(15,23,42,0.14);
+
+  /* Accents — corporate, not vibrant */
+  --accent-primary:      #2563eb;   /* members / brand */
+  --accent-primary-hover:#1d4ed8;
+  --accent-soft:         rgba(37,99,235,0.08);
+  --accent-soft-strong:  rgba(37,99,235,0.14);
+  --accent-ring:         rgba(37,99,235,0.28);
+
+  --accent-success:      #16a34a;   /* visitors */
+  --accent-success-soft: rgba(22,163,74,0.10);
+
+  --accent-warning:      #d97706;   /* offers */
+  --accent-warning-soft: rgba(217,119,6,0.10);
+
+  --accent-danger:       #dc2626;
+  --accent-danger-soft:  rgba(220,38,38,0.10);
+
+  /* Charts — blue + neutral grays, no rainbow */
+  --chart-1: #2563eb;
+  --chart-2: #60a5fa;
+  --chart-3: #94a3b8;
+  --chart-4: #cbd5e1;
+  --chart-5: #1e3a8a;
+
+  /* Layered enterprise shadows */
+  --shadow-xs: 0 1px 2px rgba(15,23,42,0.04);
+  --shadow-sm:
+    0 1px 2px rgba(15,23,42,0.04),
+    0 2px 6px rgba(15,23,42,0.04);
+  --shadow-md:
+    0 1px 2px rgba(15,23,42,0.04),
+    0 8px 20px rgba(15,23,42,0.06);
+  --shadow-lg:
+    0 1px 0 rgba(255,255,255,0.6) inset,
+    0 2px 4px rgba(15,23,42,0.04),
+    0 16px 36px rgba(15,23,42,0.08);
+  --shadow-xl:
+    0 1px 0 rgba(255,255,255,0.7) inset,
+    0 24px 48px rgba(15,23,42,0.10);
+
+  --shadow-premium:
+    0 1px 0 rgba(255,255,255,0.7) inset,
+    0 1px 2px rgba(15,23,42,0.04),
+    0 12px 32px rgba(15,23,42,0.06);
+
+  /* Interactive states */
+  --interactive-hover:  rgba(15,23,42,0.035);
+  --interactive-active: rgba(15,23,42,0.06);
+  --interactive-focus:  rgba(37,99,235,0.12);
+
+  /* Motion */
+  --transition-default: all .2s cubic-bezier(.4,0,.2,1);
 }
 
-
-/* =========================================
-   ADNA THEME-DRIVEN ENTERPRISE REFACTOR
-   ========================================= */
-
-:root {
-  --surface-base: var(--background);
-  --surface-card: var(--card);
-  --surface-sidebar: var(--sidebar);
-
-  --text-primary: var(--foreground);
-  --text-muted: var(--muted-foreground);
-
-  --border-soft: color-mix(in srgb, var(--border) 70%, transparent);
-
-  --dashboard-glow: rgba(37,99,235,0.06);
-}
-
-/* Theme-driven surfaces */
-body {
-  background: var(--surface-base);
+/* ===== Base canvas ============================================ */
+[data-theme="light"],
+body[data-theme="light"] {
+  background:
+    radial-gradient(1200px 600px at 100% -10%, rgba(37,99,235,0.04), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(15,23,42,0.03), transparent 60%),
+    var(--surface-base);
   color: var(--text-primary);
 }
 
-/* Unified cards */
-[data-slot="card"],
-.card,
-[class*="card"] {
+/* ===== Sidebar — premium dark sibling ========================= */
+body[data-theme="light"] [data-sidebar="sidebar"] {
+  background:
+    linear-gradient(180deg,
+      rgba(255,255,255,0.96) 0%,
+      rgba(248,250,252,0.96) 100%);
+  border-right: 1px solid var(--border-subtle);
+  backdrop-filter: blur(14px);
+  box-shadow: 1px 0 0 rgba(15,23,42,0.02);
+}
+
+body[data-theme="light"] [data-sidebar="menu-button"] {
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  transition: var(--transition-default);
+}
+
+body[data-theme="light"] [data-sidebar="menu-button"]:hover {
+  background: var(--interactive-hover);
+  color: var(--text-primary);
+}
+
+body[data-theme="light"] [data-sidebar="menu-button"][data-active="true"] {
+  background: var(--accent-soft);
+  border-color: var(--accent-soft-strong);
+  color: var(--accent-primary);
+  box-shadow: 0 1px 2px rgba(37,99,235,0.08);
+}
+
+/* ===== Header — thin & sophisticated ========================== */
+body[data-theme="light"] header,
+body[data-theme="light"] [data-slot="header"] {
+  background: var(--surface-header);
+  border-bottom: 1px solid var(--border-subtle);
+  backdrop-filter: blur(12px);
+}
+
+/* ===== Cards — soft layered depth ============================ */
+body[data-theme="light"] .card,
+body[data-theme="light"] [data-slot="card"] {
   background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-default);
+}
+
+body[data-theme="light"] .card:hover,
+body[data-theme="light"] [data-slot="card"]:hover {
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+/* KPI / metric refinement */
+body[data-theme="light"] .kpi-card,
+body[data-theme="light"] [class*="stats"],
+body[data-theme="light"] [class*="metric"] {
+  background:
+    linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-premium);
+}
+
+/* ===== Buttons =============================================== */
+body[data-theme="light"] button {
+  transition: var(--transition-default);
+}
+
+body[data-theme="light"] button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+body[data-theme="light"] [data-variant="primary"],
+body[data-theme="light"] .btn-primary {
+  background: linear-gradient(180deg, #2f6df0 0%, #2563eb 100%);
+  color: #ffffff;
+  border: 1px solid #1d4ed8;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.25) inset,
+    0 1px 2px rgba(37,99,235,0.25),
+    0 6px 16px rgba(37,99,235,0.18);
+}
+
+body[data-theme="light"] [data-variant="primary"]:hover,
+body[data-theme="light"] .btn-primary:hover {
+  filter: brightness(1.03);
+  transform: translateY(-1px);
+}
+
+body[data-theme="light"] [data-variant="ghost"]:hover,
+body[data-theme="light"] .btn-ghost:hover {
+  background: var(--interactive-hover);
+}
+
+/* ===== Inputs — clean enterprise ============================= */
+body[data-theme="light"] input,
+body[data-theme="light"] textarea,
+body[data-theme="light"] select,
+body[data-theme="light"] [data-slot="input"] {
+  background: #ffffff;
+  border: 1px solid var(--border-default);
   color: var(--text-primary);
-  border-color: var(--border-soft);
+  border-radius: 10px;
+  box-shadow: 0 1px 0 rgba(15,23,42,0.02) inset;
+  transition: var(--transition-default);
 }
 
-/* Unified sidebar */
-[data-sidebar="sidebar"] {
-  background: var(--surface-sidebar);
-  border-color: var(--border-soft);
+body[data-theme="light"] input::placeholder,
+body[data-theme="light"] textarea::placeholder {
+  color: var(--text-subtle);
 }
 
-/* Unified text hierarchy */
-h1,h2,h3,h4 {
-  color: var(--text-primary);
+body[data-theme="light"] input:hover,
+body[data-theme="light"] textarea:hover,
+body[data-theme="light"] select:hover {
+  border-color: var(--border-strong);
 }
 
-p,
-span,
-label {
-  color: inherit;
+body[data-theme="light"] input:focus,
+body[data-theme="light"] textarea:focus,
+body[data-theme="light"] select:focus,
+body[data-theme="light"] [data-slot="input"]:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-ring);
 }
 
-/* Unified muted content */
-.text-muted,
-[class*="muted"] {
+/* ===== Tabs — pill style ===================================== */
+body[data-theme="light"] [role="tablist"],
+body[data-theme="light"] [data-slot="tabs-list"] {
+  background: var(--surface-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 4px;
+  gap: 2px;
+}
+
+body[data-theme="light"] [role="tab"],
+body[data-theme="light"] [data-slot="tabs-trigger"] {
+  border-radius: 9px;
   color: var(--text-muted);
+  font-weight: 500;
+  transition: var(--transition-default);
 }
 
-/* Charts inherit theme */
-.recharts-cartesian-grid line {
-  stroke: var(--border-soft);
+body[data-theme="light"] [role="tab"]:hover {
+  color: var(--text-primary);
 }
 
-.recharts-tooltip-wrapper {
-  filter: drop-shadow(0 14px 24px rgba(0,0,0,0.35));
+body[data-theme="light"] [role="tab"][data-state="active"],
+body[data-theme="light"] [data-slot="tabs-trigger"][data-state="active"] {
+  background: #ffffff;
+  color: var(--text-primary);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.8) inset,
+    0 1px 2px rgba(15,23,42,0.06),
+    0 4px 10px rgba(15,23,42,0.05);
+}
+
+/* ===== Dropdowns / popovers — solid ========================== */
+body[data-theme="light"] [data-slot="dropdown-menu-content"],
+body[data-theme="light"] [data-slot="popover-content"],
+body[data-theme="light"] [data-slot="select-content"],
+body[data-theme="light"] [role="menu"],
+body[data-theme="light"] [role="listbox"] {
+  background: #ffffff;
+  border: 1px solid var(--border-default);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: none;
+}
+
+body[data-theme="light"] [role="menuitem"]:hover,
+body[data-theme="light"] [role="option"]:hover,
+body[data-theme="light"] [data-slot="dropdown-menu-item"]:hover {
+  background: var(--interactive-hover);
+  color: var(--text-primary);
+}
+
+body[data-theme="light"] [role="menuitem"][data-highlighted],
+body[data-theme="light"] [role="option"][data-highlighted] {
+  background: var(--accent-soft);
+  color: var(--accent-primary);
+}
+
+/* ===== Badges / status ======================================= */
+body[data-theme="light"] [data-status="member"],
+body[data-theme="light"] .badge-member {
+  background: var(--accent-soft);
+  color: var(--accent-primary);
+  border: 1px solid var(--accent-soft-strong);
+}
+
+body[data-theme="light"] [data-status="visitor"],
+body[data-theme="light"] .badge-visitor {
+  background: var(--accent-success-soft);
+  color: var(--accent-success);
+  border: 1px solid rgba(22,163,74,0.18);
+}
+
+body[data-theme="light"] [data-status="offer"],
+body[data-theme="light"] .badge-offer {
+  background: var(--accent-warning-soft);
+  color: var(--accent-warning);
+  border: 1px solid rgba(217,119,6,0.18);
+}
+
+/* ===== Tables ================================================ */
+body[data-theme="light"] table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+body[data-theme="light"] thead th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: .01em;
+  border-bottom: 1px solid var(--border-default);
+}
+
+body[data-theme="light"] tbody tr {
+  border-bottom: 1px solid var(--border-soft);
+  transition: background .15s ease;
+}
+
+body[data-theme="light"] tbody tr:hover {
+  background: var(--interactive-hover);
+}
+
+/* ===== Scrollbars ============================================ */
+body[data-theme="light"] *::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+body[data-theme="light"] *::-webkit-scrollbar-thumb {
+  background: rgba(15,23,42,0.14);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+body[data-theme="light"] *::-webkit-scrollbar-thumb:hover {
+  background: rgba(15,23,42,0.22);
+  background-clip: padding-box;
+}
+
+/* ===== Charts — restrained palette =========================== */
+body[data-theme="light"] .recharts-cartesian-grid line {
+  stroke: rgba(15,23,42,0.06);
+}
+body[data-theme="light"] .recharts-text,
+body[data-theme="light"] .recharts-cartesian-axis-tick text {
+  fill: var(--text-muted);
+}
+body[data-theme="light"] .recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: #ffffff !important;
+  border: 1px solid var(--border-default) !important;
+  border-radius: 10px !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* ===== Typography hierarchy ================================== */
+body[data-theme="light"] h1,
+body[data-theme="light"] h2,
+body[data-theme="light"] h3 {
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+body[data-theme="light"] h4,
+body[data-theme="light"] h5 {
+  color: var(--text-secondary);
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+body[data-theme="light"] p,
+body[data-theme="light"] span,
+body[data-theme="light"] li {
+  color: var(--text-secondary);
+}
+
+/* ===== Dividers / separators ================================= */
+body[data-theme="light"] hr,
+body[data-theme="light"] [data-slot="separator"] {
+  background: var(--border-subtle);
+  border: none;
+  height: 1px;
+}
+
+/* ===== Dialogs / sheets ====================================== */
+body[data-theme="light"] [data-slot="dialog-content"],
+body[data-theme="light"] [data-slot="sheet-content"] {
+  background: #ffffff;
+  border: 1px solid var(--border-default);
+  border-radius: 16px;
+  box-shadow: var(--shadow-xl);
+}
+
+body[data-theme="light"] [data-slot="dialog-overlay"],
+body[data-theme="light"] [data-slot="sheet-overlay"] {
+  background: rgba(15,23,42,0.32);
+  backdrop-filter: blur(2px);
 }
