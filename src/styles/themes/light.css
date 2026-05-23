@@ -1,48 +1,74 @@
-
 [data-theme="light"] {
   --surface-base: #f8fafc;
-  --surface-subtle: #f5f7fa;
   --surface-card: #ffffff;
-  --surface-elevated: #ffffff;
-  --surface-sidebar: #fcfdff;
-
+  --surface-sidebar: #eef2ff;
   --text-primary: #0f172a;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
-
-  --border-subtle: rgba(15,23,42,0.06);
-  --border-default: rgba(15,23,42,0.08);
-
+  --text-muted: #475569;
+  --border-soft: rgba(15,23,42,0.08);
   --accent-primary: #2563eb;
-  --accent-soft: rgba(37,99,235,0.08);
-
-  --shadow-sm: 0 4px 12px rgba(15,23,42,0.05);
-  --shadow-md: 0 10px 30px rgba(15,23,42,0.08);
-  --shadow-lg: 0 20px 48px rgba(15,23,42,0.10);
-
-  --interactive-hover: rgba(15,23,42,0.03);
-  --interactive-active: rgba(15,23,42,0.05);
 }
 
-/* White Premium Enterprise Layout */
 
-body[data-theme="light"] {
-  background:
-    radial-gradient(circle at top left, rgba(37,99,235,0.04), transparent 24%),
-    var(--surface-base);
+/* =========================================
+   ADNA THEME-DRIVEN ENTERPRISE REFACTOR
+   ========================================= */
+
+:root {
+  --surface-base: var(--background);
+  --surface-card: var(--card);
+  --surface-sidebar: var(--sidebar);
+
+  --text-primary: var(--foreground);
+  --text-muted: var(--muted-foreground);
+
+  --border-soft: color-mix(in srgb, var(--border) 70%, transparent);
+
+  --dashboard-glow: rgba(37,99,235,0.06);
 }
 
-body[data-theme="light"] [data-sidebar="sidebar"] {
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(18px);
+/* Theme-driven surfaces */
+body {
+  background: var(--surface-base);
+  color: var(--text-primary);
 }
 
-body[data-theme="light"] .card,
-body[data-theme="light"] [data-slot="card"] {
-  border-radius: 24px;
+/* Unified cards */
+[data-slot="card"],
+.card,
+[class*="card"] {
+  background: var(--surface-card);
+  color: var(--text-primary);
+  border-color: var(--border-soft);
 }
 
-body[data-theme="light"] button:hover {
-  transition: var(--transition-default);
-  transform: translateY(-1px);
+/* Unified sidebar */
+[data-sidebar="sidebar"] {
+  background: var(--surface-sidebar);
+  border-color: var(--border-soft);
+}
+
+/* Unified text hierarchy */
+h1,h2,h3,h4 {
+  color: var(--text-primary);
+}
+
+p,
+span,
+label {
+  color: inherit;
+}
+
+/* Unified muted content */
+.text-muted,
+[class*="muted"] {
+  color: var(--text-muted);
+}
+
+/* Charts inherit theme */
+.recharts-cartesian-grid line {
+  stroke: var(--border-soft);
+}
+
+.recharts-tooltip-wrapper {
+  filter: drop-shadow(0 14px 24px rgba(0,0,0,0.35));
 }
