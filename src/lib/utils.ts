@@ -32,3 +32,14 @@ export function brDateTimeToISO(value?: string | null) {
 
   return `${year}-${month}-${day}T${time ?? "00:00"}`;
 }
+export function formatDateBR(value?: string | Date | null) {
+  if (!value) return "-";
+
+  return new Date(value).toLocaleDateString("pt-BR");
+}
+
+export function formatDateTimeBR(value?: string | Date | null) {
+  if (!value) return "-";
+
+  return new Date(value).toLocaleString("pt-BR");
+}
