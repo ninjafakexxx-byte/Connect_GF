@@ -65,6 +65,7 @@ interface Goal {
   updated_at: string;
 }
 
+
 const GOALS_TABLE = "goals";
 const GOAL_COLUMNS =
   "id,title,description,category,priority,status,progress,due_date,created_by,created_at,updated_at";
