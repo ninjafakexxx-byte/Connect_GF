@@ -139,11 +139,12 @@ function Dashboard() {
               {active && (
                 <motion.span
                   layoutId="dashboard-tab-bg"
-                  className={
-                    isBlackTheme
-                      ? "absolute inset-0 rounded-xl border border-[rgba(214,168,95,0.20)] bg-[linear-gradient(180deg,rgba(214,168,95,0.16),rgba(214,168,95,0.08))] shadow-[0_12px_28px_-18px_rgba(214,168,95,0.42)]"
-                      : "absolute inset-0 rounded-xl bg-gradient-to-r from-[color:var(--brand-blue)] to-[color:var(--brand-blue-glow)] shadow-[var(--shadow-glow-blue)]"
-                  }
+                 
+                    className={
+  isBlackTheme
+    ? "absolute inset-0 rounded-xl border border-[rgba(214,168,95,0.20)] bg-[linear-gradient(180deg,rgba(214,168,95,0.16),rgba(214,168,95,0.08))] shadow-[0_12px_28px_-18px_rgba(214,168,95,0.42)]"
+    : "absolute inset-0 rounded-xl border border-blue-500/30 bg-[#2563eb] shadow-[0_0_20px_rgba(37,99,235,0.35)]"
+}
                   transition={{ type: "spring", bounce: 0.18, duration: 0.5 }}
                 />
               )}
